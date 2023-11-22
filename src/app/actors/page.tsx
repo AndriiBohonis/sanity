@@ -14,7 +14,7 @@ export default async function Actors() {
 
   return (
     <ul className='container'>
-      {data && data.map(item => <li>{item.title}</li>)}
+      {data && data.map((item: any) => <li>{item.title}</li>)}
     </ul>
   );
 }
