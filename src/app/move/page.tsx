@@ -11,7 +11,7 @@ async function getPosts() {
 }`);
   return posts;
 }
-export const revalidate = 60;
+
 export default async function Move() {
   const data = await getPosts();
   return (

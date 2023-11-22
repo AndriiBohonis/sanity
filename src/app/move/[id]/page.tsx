@@ -4,7 +4,7 @@ type Params = {
     id: string;
   };
 };
-export const revalidate = 60;
+
 async function getMove(id: any) {
   const move = await client.fetch(
     `*[_type == 'events' && _id == '${id.params.id}']{

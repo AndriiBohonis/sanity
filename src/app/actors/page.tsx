@@ -8,8 +8,6 @@ async function getActors() {
   return actors;
 }
 
-export const revalidate = 60;
-
 export default async function Actors() {
   const data = await getActors();
   console.log(data);
