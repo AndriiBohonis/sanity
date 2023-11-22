@@ -3,11 +3,11 @@ import { urlFor, client } from '../../lib/client.js';
 async function getActors() {
   const actors = await client.fetch(
     `*[_type == 'events']
-`,
-    { next: { revalidate: 1 } }
+`
   );
   return actors;
 }
+export const revalidate = 1;
 export default async function Actors() {
   const data = await getActors();
   console.log(data);
