@@ -5,16 +5,26 @@ type Params = {
   };
 };
 
+export async function generateStaticParams() {
+  const pagesId = await client.fetch(
+    `*[_type == 'events']{
+    "id":_id
+    }`
+  );
+  return pagesId;
+}
+
 async function getMove(id: any) {
   const move = await client.fetch(
-    `*[_type == 'events' && _id == '${id.params.id}']{
+    `*[_type == 'events' && _id == '${id}']{
       title,
       'imgSrc':imgSrc.asset._ref,
     }`
   );
+
   return move;
 }
-export default async function Page(id: Params) {
+export default async function Page({ params: { id } }: Params) {
   const data = await getMove(id);
 
   return (
