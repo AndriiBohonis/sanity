@@ -4,7 +4,7 @@ type Params = {
     id: string;
   };
 };
-
+export const revalidate = 30;
 export async function generateStaticParams() {
   const pagesId = await client.fetch(
     `*[_type == 'events']{
